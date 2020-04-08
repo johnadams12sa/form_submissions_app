@@ -2,16 +2,26 @@
 <html>
 <head lang = 'en'>
   <meta charset = 'utf-8'>
+  <meta name= "viewport" content = "width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <title> Simple Form </title>
   <script src = "../script.js" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 
 <body>
-<form name = "simple_form" onsubmit = "return validateForm()" method = "post">
-  Name: <input type = "text" name = "user_name">
-  <input type = "submit" value = "Submit">
-</form>
+<div class="jumbotron">
+  <center> Simple Form Submission Validation </center>
+</div>
+<div class = "form_container">
+  <form name = "simple_form" onsubmit = "return validateForm()" method = "post">
+    Name: <input type = "text" name = "user_name">
+    <input type = "submit" value = "Submit">
+  </form>
+</div>
+
 </body>
 
 </html> 
