@@ -18,40 +18,85 @@
     <h1 class = "display-2">Simple Form Submission Validation</h1>
   </center>
 </div>
-<div class = "form_container" style="padding:5%">
+<div class = "form_group" style="padding:5%">
   <form name = "simple_form" onsubmit = "return validateForm()" method = "post">
     <div class="add_resume">
       <label for="add_resume">Resume *</label>
-      <input type="file" id="add_resume" name="add_resume" required>
-      <br/><br/>
-    </div>
-    
-    <div class="name_input">
-      <b>First Name: *</b><input type = "text" name = "user_name" placeholder="John e.g.">
-      <b>Last Name: *</b><input type="text_required" name = "name_req" placeholder = "Doe e.g." required>
+      <input type="file" id="add_resume" name="add_resume">
       <br/><br/>
     </div>
 
-    <div class="contact_info">
-      <label for="add_email">Email: *</label>
-      <input type="email" id="email_input" name="email_input" required>
-      <label for="add_phone">Phone Number: *</label>
-      <input type="number" id="add_phone" name="add_phone" required>
+    <div class="container-fluid">
+      <div class="row" class="name_input">
+        <div class="col-sm-4">
+          <b>First Name: *</b><input type="text" class="form-control" name="user_name" placeholder="John e.g.">
+        </div>
+        <div class="col-sm-4">
+          <b>Last Name: *</b><input type="text_required" class="form-control" name="name_req" placeholder="Doe e.g.">
+        </div>
+      </div>
+
+      <div class="row" class="contact_info">
+        <div class="col-sm-4">
+          <label for="add_email">Email: *</label>
+          <input type="email" class="form-control" id="email_input" name="email_input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" size=32 required>
+        </div>
+        <div class="col-sm-4">
+          <label for="add_phone">Phone Number: *</label>
+          <input type="tel" class="form-control" id="add_phone" name="add_phone" placeholder="999-999-9999" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+        </div>
+      </div>
+
+      <div class="row" class="address_input">
+        <div class="col-sm-4">
+          <label for="address_input">Address 1: </label>
+          <input type="text" class="form-control" id="address_input_1" name="address_input_1" size=32>
+        </div>
+        <div class="col-sm-4">
+          <label for="address_input">Address 2: </label>
+          <input type="text" class="form-control" id="address_input_2" name="address_input_2" size=32>
+        </div>
+      </div>
+
+      <div class="row" class="address_cont">
+        <div class="col-sm-4">
+          <label for="address_city">City: </label>
+          <input type="text" class="form-control" id="address_city" name="address_city" size=32>
+        </div>
+        <div class="col-sm-4">
+          <label for="address_state">State: </label>
+          
+        </div>
+      </div>
+
+      <div class="row" class="login_credentials">
+        <div class="col-sm-4">
+          <!--Add verification for unqiue usernames later-->
+          <label for="username">Username: </label>
+          <input type="text" class="form-control" id="usernam" name="username">
+          <br/>
+        </div>
+        <div class="col-sm-4">
+          <label for="password">Password: </label>
+          <input type="password" class="form-control" id="password" name="password" title="Must contain at least one upper and lowercase character, as well as at least one number,
+        and at least 8 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        </div>
+      </div>
+
+
+      <div class="row" class="pin_number">
+        <div class="col-sm-4">
+          <label for="pin">Pin Number: </label>
+          <input type="text" class="form-control" id="pin" name="pin" size=4 minlength=4 maxlength=4 pattern="[0-9]{4}" required>
+          <br /><br />
+      </div>
+
     </div>
 
-    <div class="address_input">
-      <label for="address_input">Address 1</label>
-      <input type="text" id="address_input_1" name="address_input_1">
-      <br/>
-      <label for="address_input">Address 2</label>
-      <input type="text" id="address_input_2" name="address_input_2">
-    </div>
 
-    <label for="pin">Pin Number: </label>
-    <input type="text" id = "pin" name ="pin" size = 4 minlength=4 maxlength=4 pattern="[0-9]{4}" required>
-    <br/><br/>
 
-    <label for="E-Signature">E-Signature</label>
+
+    <label for="E-Signature">E-Signature: </label>
     <input type="text" id="E-Signature" name="E-Signature" required>
     <label for="date_of_visit">Date: </label>
     <input type="date" id="date_of_visit" name="date_of_visit" placeholder="04/13/2020" pattern="[0]{1}[1-9]{1}|[1]{1}[0-2]{1}\/[0]{1}[1-9]{1}|[1-2]{1}[0-9]{1}|[3]{1}[0-1]{1}\/[1]{1}[9]{1}[0-9]{2}|[2]{1}[0-9]{3}">
