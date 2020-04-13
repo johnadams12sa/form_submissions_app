@@ -27,88 +27,145 @@
     </div>
 
     <div class="container-fluid">
-      <div class="row" class="name_input">
-        <div class="col-sm-4">
+      <div class="form-row" class="name_input">
+        <div class="col-sm-6">
           <b>First Name: *</b><input type="text" class="form-control" name="user_name" placeholder="John e.g.">
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <b>Last Name: *</b><input type="text_required" class="form-control" name="name_req" placeholder="Doe e.g.">
         </div>
       </div>
 
-      <div class="row" class="contact_info">
-        <div class="col-sm-4">
+      <div class="form-row" class="contact_info">
+        <div class="col-sm-6">
           <label for="add_email">Email: *</label>
           <input type="email" class="form-control" id="email_input" name="email_input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" size=32 required>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label for="add_phone">Phone Number: *</label>
           <input type="tel" class="form-control" id="add_phone" name="add_phone" placeholder="999-999-9999" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
         </div>
       </div>
 
-      <div class="row" class="address_input">
-        <div class="col-sm-4">
+      <div class="form-row" class="address_input">
+        <div class="col-sm-6">
           <label for="address_input">Address 1: </label>
           <input type="text" class="form-control" id="address_input_1" name="address_input_1" size=32>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label for="address_input">Address 2: </label>
           <input type="text" class="form-control" id="address_input_2" name="address_input_2" size=32>
         </div>
       </div>
 
-      <div class="row" class="address_cont">
-        <div class="col-sm-4">
+      <div class="form-row" class="address_cont">
+        <div class="col-sm-6">
           <label for="address_city">City: </label>
           <input type="text" class="form-control" id="address_city" name="address_city" size=32>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label for="address_state">State: </label>
-          
+          <select class="form-control" id="address_state" name="address_state">
+            <option value="">N/A</option>
+            <option value="AK">Alaska</option>
+            <option value="AL">Alabama</option>
+            <option value="AR">Arkansas</option>
+            <option value="AZ">Arizona</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DC">District of Columbia</option>
+            <option value="DE">Delaware</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="IA">Iowa</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MD">Maryland</option>
+            <option value="ME">Maine</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MO">Missouri</option>
+            <option value="MS">Mississippi</option>
+            <option value="MT">Montana</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="NE">Nebraska</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NV">Nevada</option>
+            <option value="NY">New York</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VA">Virginia</option>
+            <option value="VT">Vermont</option>
+            <option value="WA">Washington</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WV">West Virginia</option>
+            <option value="WY">Wyoming</option>
+          </select>
         </div>
       </div>
 
-      <div class="row" class="login_credentials">
-        <div class="col-sm-4">
+      <div class="form-row" class="login_credentials">
+        <div class="col-sm-6">
           <!--Add verification for unqiue usernames later-->
           <label for="username">Username: </label>
           <input type="text" class="form-control" id="usernam" name="username">
-          <br/>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <label for="password">Password: </label>
-          <input type="password" class="form-control" id="password" name="password" title="Must contain at least one upper and lowercase character, as well as at least one number,
-        and at least 8 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+          <input type="password" class="form-control" id="password" name="password" title="Must contain at least one upper and lowercase character, as well as at least one number, and at least 8 or more characters" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
         </div>
       </div>
 
-
-      <div class="row" class="pin_number">
-        <div class="col-sm-4">
-          <label for="pin">Pin Number: </label>
-          <input type="text" class="form-control" id="pin" name="pin" size=4 minlength=4 maxlength=4 pattern="[0-9]{4}" required>
-          <br /><br />
+      <div class="form-row" class="pin">
+        <div class="col-sm-1">
+          <label for="pin_create">Pin: </label>
+          <input type="text" class="form-control" id="pin" name="pin" size=4 minlength=4 maxlength=4 pattern="[0-9]{4}"
+            required>
+        </div>
+        <div class="col-sm-11">
+          <!--empty container for spacing-->
+          <label for="empty">Empty</label>
+          <input type="text" class="form-control" style="display:hide;">
+        </div>
       </div>
 
+      <div class="form-row" class="verification">
+        <div class="col-sm-6">
+          <label for="E-Signature">E-Signature: </label>
+          <input type="text" class="form-control" id="E-Signature" name="E-Signature" required>
+        </div>
+        <div class="col-sm-6">
+          <label for="date_of_visit">Date: </label>
+          <input type="date" class="form-control" id="date_of_visit" name="date_of_visit" placeholder="04/13/2020"
+            pattern="[0]{1}[1-9]{1}|[1]{1}[0-2]{1}\/[0]{1}[1-9]{1}|[1-2]{1}[0-9]{1}|[3]{1}[0-1]{1}\/[1]{1}[9]{1}[0-9]{2}|[2]{1}[0-9]{3}">
+        </div>        
+      </div>
     </div>
-
-
-
-
-    <label for="E-Signature">E-Signature: </label>
-    <input type="text" id="E-Signature" name="E-Signature" required>
-    <label for="date_of_visit">Date: </label>
-    <input type="date" id="date_of_visit" name="date_of_visit" placeholder="04/13/2020" pattern="[0]{1}[1-9]{1}|[1]{1}[0-2]{1}\/[0]{1}[1-9]{1}|[1-2]{1}[0-9]{1}|[3]{1}[0-1]{1}\/[1]{1}[9]{1}[0-9]{2}|[2]{1}[0-9]{3}">
     <br/><br/>
-
-    <input type="submit" value="Submit" style="padding:1% 2%; background-color:rgb(204,245,255); border:none;">
-    <input type="reset" style="padding:1% 2%; background-color:rgb(255,245,204); border:none;">
-
+    <div class="form-row" class="form-buttons">
+      <input type="submit" value="Submit" style="padding:1% 2%; background-color:rgb(204,245,255); border:none;">
+      <input type="reset" style="padding:1% 2%; background-color:rgb(255,245,204); border:none;">
+    </div>
   </form>
-  <p id = "name_validator"></p>
-</div>
-
 </body>
 
 </html> 
