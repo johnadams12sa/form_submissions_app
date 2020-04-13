@@ -3,7 +3,7 @@ function validateForm(){
   x = document.forms["simple_form"]["user_name"].value;
   text = "";
   if (x === ""){
-    alert("Name is a required field");
+    alert("First name is a required field");
   }
   else{
     text = "";

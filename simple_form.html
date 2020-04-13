@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head lang = 'en'>
+<head lang = 'en-US'>
   <meta charset = 'utf-8'>
   <meta name= "viewport" content = "width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -19,8 +19,14 @@
 </div>
 <div class = "form_container">
   <form name = "simple_form" onsubmit = "return validateForm()" method = "post">
-    Name: <input type = "text" name = "user_name">
-    <input id = "name_input" type = "submit" value = "Submit">
+    First Name: <input type = "text" name = "user_name">
+    <br/><br/>
+    Last Name: <input type="text_required" name = "name_req" required>
+    <br/><br/>
+    <label for ="pin">Pin Number</label>
+    <input type="text" id = "pin" name ="pin" size = 4 minlength=4 maxlength=4 required>
+    <br/><br/>
+    <input type = "submit" value="Submit">
   </form>
   <p id = "name_validator"></p>
 </div>
