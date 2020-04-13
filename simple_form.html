@@ -20,26 +20,45 @@
 </div>
 <div class = "form_container" style="padding:5%">
   <form name = "simple_form" onsubmit = "return validateForm()" method = "post">
-    First Name: <input type = "text" name = "user_name" placeholder="John e.g.">
-    <br/><br/>
+    <div class="add_resume">
+      <label for="add_resume">Resume *</label>
+      <input type="file" id="add_resume" name="add_resume" required>
+      <br/><br/>
+    </div>
+    
+    <div class="name_input">
+      <b>First Name: *</b><input type = "text" name = "user_name" placeholder="John e.g.">
+      <b>Last Name: *</b><input type="text_required" name = "name_req" placeholder = "Doe e.g." required>
+      <br/><br/>
+    </div>
 
-    Last Name: <input type="text_required" name = "name_req" placeholder = "Doe e.g." required>
-    <br/><br/>
+    <div class="contact_info">
+      <label for="add_email">Email: *</label>
+      <input type="email" id="email_input" name="email_input" required>
+      <label for="add_phone">Phone Number: *</label>
+      <input type="number" id="add_phone" name="add_phone" required>
+    </div>
+
+    <div class="address_input">
+      <label for="address_input">Address 1</label>
+      <input type="text" id="address_input_1" name="address_input_1">
+      <br/>
+      <label for="address_input">Address 2</label>
+      <input type="text" id="address_input_2" name="address_input_2">
+    </div>
 
     <label for="pin">Pin Number: </label>
     <input type="text" id = "pin" name ="pin" size = 4 minlength=4 maxlength=4 pattern="[0-9]{4}" required>
     <br/><br/>
 
-    <label for="related_docs">Select files</label>
-    <input type="file" id="related_docs" name="related_docs" multiple>
-    <br /><br />
-
+    <label for="E-Signature">E-Signature</label>
+    <input type="text" id="E-Signature" name="E-Signature" required>
     <label for="date_of_visit">Date: </label>
     <input type="date" id="date_of_visit" name="date_of_visit" placeholder="04/13/2020" pattern="[0]{1}[1-9]{1}|[1]{1}[0-2]{1}\/[0]{1}[1-9]{1}|[1-2]{1}[0-9]{1}|[3]{1}[0-1]{1}\/[1]{1}[9]{1}[0-9]{2}|[2]{1}[0-9]{3}">
     <br/><br/>
 
     <input type="submit" value="Submit" style="padding:1% 2%; background-color:rgb(204,245,255); border:none;">
-    <input type="reset">
+    <input type="reset" style="padding:1% 2%; background-color:rgb(255,245,204); border:none;">
 
   </form>
   <p id = "name_validator"></p>
