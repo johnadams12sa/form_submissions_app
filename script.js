@@ -1,7 +1,12 @@
 function validateForm(){
-  var x = document.forms["simple_form"]["user_name"].value;
+  var x, text;
+  x = document.forms["simple_form"]["user_name"].value;
+  text = "";
   if (x === ""){
     alert("Name is a required field");
-    return false;
   }
+  else{
+    text = "";
+  }
+  document.getElementById("name_validator").innerHTML = text;
 }
