@@ -1,0 +1,19 @@
+.form_group{
+    padding:5%;
+}
+
+.my_form_buttons{
+    border:none;
+}
+
+.my_form_buttons .submit_button{
+    margin:1%;
+    padding: 1% 2%;
+    color:white;
+}
+
+.my_form_buttons .reset_button{
+    padding: 1% 2%; 
+    background-color:orange; 
+    border:none;
+}
