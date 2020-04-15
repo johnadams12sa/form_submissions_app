@@ -1,3 +1,19 @@
+body{
+    /*background-image: url("https://image.shutterstock.com/image-vector/blue-white-light-polygonal-mosaic-260nw-230257930.jpg");*/
+    background-image: url("https://oldschoolgrappling.com/wp-content/uploads/2018/08/Background-opera-speeddials-community-web-simple-backgrounds.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.jumbotron{
+    background-color: dimgray;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .form_group{
     padding:5%;
 }
