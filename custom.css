@@ -5,7 +5,15 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 175%;
+    font-size: 20px;
+}
+
+.form_group{
+    font-size: 1.5em;
+}
+
+button{
+    font-size: 1.25em;
 }
 
 .jumbotron{
@@ -14,10 +22,12 @@ body{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
 .form_group{
     padding:5%;
 }
 
+/*
 .my_form_buttons{
     border:none;
     font-size: 
@@ -34,3 +44,4 @@ body{
     background-color:orange; 
     border:none;
 }
+*/
