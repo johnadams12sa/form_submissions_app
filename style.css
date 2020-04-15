@@ -5,7 +5,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 18px;
+    font-size: 175%;
 }
 
 .jumbotron{
@@ -20,6 +20,7 @@ body{
 
 .my_form_buttons{
     border:none;
+    font-size: 
 }
 
 .my_form_buttons .submit_button{
