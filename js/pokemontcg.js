@@ -16,7 +16,7 @@ function searchPokemonCard(searchInput){
         }).then(results =>{
             inits(results);
             /*jsonObject = results;*/
-            console.log(jsonObject);
+            console.log(results);
         })
 }
 
