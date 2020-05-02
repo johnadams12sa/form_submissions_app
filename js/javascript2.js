@@ -82,4 +82,3 @@ function init(resultFromAPICall){
     weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/2}px)`;
     weatherContainer.style.visibility = 'visible';
 }*/
-
