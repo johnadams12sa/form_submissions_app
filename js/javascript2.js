@@ -8,6 +8,11 @@ document.getElementById('searchBtn').addEventListener('click', () => {
         searchWeather(searchTerm);
 })
 
+function onStartUpContainer(){
+    let searchTerm = 'Elmhurst';
+    searchWeather(searchTerm);
+}
+
 function getSearchMethod(searchTerm){
     if(searchTerm.length === 5 && Number.parseInt(searchTerm) + '' === searchTerm)
         searchMethod = 'zip';
@@ -54,6 +59,7 @@ function init(resultFromAPICall){
 
     let weatherDescriptionHeader=document.getElementById('weatherDescriptionHeader');
     let temperatureElement=document.getElementById('temperature');
+    let temperatureElementRange=document.getElementById('temperature_range');
     let humidityElement=document.getElementById('humidity');
     let windSpeedElement=document.getElementById('windSpeed');
     let cityHeader=document.getElementById('cityHeader');
@@ -63,8 +69,9 @@ function init(resultFromAPICall){
 
     let resultDescription = resultFromAPICall.weather[0].description;
     weatherDescriptionHeader.innerHTML = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-    temperatureElement.innerHTML = Math.floor(resultFromAPICall.main.temp) + '&#176' + '<br/>' + 
-    'High ' + Math.floor(resultFromAPICall.main.temp_max) + '&#176' + '<br/>' + 
+    temperatureElement.innerHTML = Math.floor(resultFromAPICall.main.temp) + '&#176';
+    temperatureElement.style.fontSize= "40px";
+    temperatureElementRange.innerHTML = 'High ' + Math.floor(resultFromAPICall.main.temp_max) + '&#176' + '<br/>' + 
     'Low ' + Math.floor(resultFromAPICall.main.temp_min) + '&#176';
     windSpeedElement.innerHTML = 'Winds at ' + Math.floor(resultFromAPICall.wind.speed) + 'm/s';
     cityHeader.innerHTML = resultFromAPICall.name + ', ' + resultFromAPICall.sys.country;
@@ -82,3 +89,5 @@ function init(resultFromAPICall){
     weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/2}px)`;
     weatherContainer.style.visibility = 'visible';
 }*/
+
+window.onload = onStartUpContainer();
