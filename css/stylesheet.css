@@ -184,5 +184,12 @@ hr{
     height: 383px;
     padding: 25px;
     border-radius: 25px;
-    float:     
+    float: left; 
+}
+#pokemon_next_nav{
+    position: relative;
+}
+
+#pokemon_prev_nav{
+    position: relative;
 }
