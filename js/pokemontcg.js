@@ -10,7 +10,7 @@ prev_button.style.visibility = "hidden";
 next_button.style.visibility = "hidden";
 
 function validateInput(){
-    let searchInput = document.getElementById('searchBtn2').value;
+    let searchInput = document.getElementById('searchInput2').value;
     if(searchInput == ""){
         fetchMessage = "Try a different name";
     }

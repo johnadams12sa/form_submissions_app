@@ -193,3 +193,13 @@ hr{
 #pokemon_prev_nav{
     position: relative;
 }
+
+/*-----LoL -------------------------------------------------------------------------------------------*/
+.LoL{
+    margin: 15px;
+    width: 245px;
+    height: 383px;
+    padding: 25px;
+    border-radius: 25px;
+    float: left; 
+}
