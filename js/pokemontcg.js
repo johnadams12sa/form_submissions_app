@@ -6,15 +6,26 @@ var next_button = document.getElementById("pokemon_next_nav");
 var searchError = document.getElementById("ErrorMsgSearch");
 var fetchMessage = document.getElementById("FetchingTitle");
 
+prev_button.style.visibility = "hidden";
+next_button.style.visibility = "hidden";
+
 function validateInput(){
-    fetchMessage.innerHTML = "Fetching...";
-    setTimeout(() =>{
-        let searchInput = document.getElementById('searchBtn2').value;
-        if (searchInput) {
-            searchPokemonCard(searchInput);
-            i = 0;
-        }        
-    }, 3000);
+    let searchInput = document.getElementById('searchBtn2').value;
+    if(searchInput == ""){
+        fetchMessage = "Try a different name";
+    }
+    else{
+        try {
+            fetchMessage.innerHTML = "Fetching...";
+            setTimeout(() => {
+                    searchPokemonCard(searchInput);
+                    i = 0;
+            }, 3000);
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+    }
 }
 
 function searchPokemonCard(searchInput){
@@ -38,8 +49,8 @@ function searchPokemonCard(searchInput){
 
 function inits(results){
     fetchMessage.innerHTML = "";
-    prev_button.visible = true;
-    next_button.visible = true;
+    prev_button.style.visibility = "visible";
+    next_button.style.visibility = "visible";
     prev_button.disabled = false;
     next_button.disabled = false;
     try{
