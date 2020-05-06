@@ -4,8 +4,9 @@ let championJSONURL = 'http://ddragon.leagueoflegends.com/cdn/10.9.1/data/en_US/
 let queryURL = riotURL + APIKEY;
 var riotChampionJson = {};
 var freeChampionRotations = {};
-let championSearch = document.getElementById("searchBtn3").value;
+let championSearch = document.getElementById("searchInput3").value;
 let champion = "";
+let arrayOfChampions = [];
 
 function parseChampionJSON(championJSONURL){
     fetch(championJSONURL).then(results =>{
@@ -26,8 +27,11 @@ function freeChampionRotationJSON(){
 }
 
 function searchChampion(){
+    let championSearch = "Ahri";
+    arrayOfChampions = [];
     for(x in riotChampionJson.data){
-        if(championSearch == x){
+        arrayOfChampions.push(riotChampionJson.data[x]);
+        if(championSearch == arrayOfChampions[x]){
             champion = x.name;
             let modifiedChampionJSONURL = championJSONURL;
             modifiedChampionJSONURL.splice(-4,0,"/"+champion);
