@@ -10,21 +10,37 @@ prev_button.style.visibility = "hidden";
 next_button.style.visibility = "hidden";
 
 function validateInput(){
+    /*---deprecated by datalist
     let searchInput = document.getElementById('searchInput2').value;
-    if(searchInput == ""){
+    ---*/
+    let selectInput = document.getElementById('userSearchPokemon').value;
+    /*
+    if(searchInput == "" && selectInput == "zero"){
         fetchMessage = "Try a different name";
     }
-    else{
-        try {
-            fetchMessage.innerHTML = "Fetching...";
-            setTimeout(() => {
-                    searchPokemonCard(searchInput);
-                    i = 0;
-            }, 3000);
-        }
-        catch (err) {
-            console.log(err.message);
-        }
+    else if (searchInput != "" && selectInput =="zero"){
+        selectMethod(searchInput);
+    }
+    else if(searchInput != "" && selectInput != "zero"){
+        selectMethod(selectInput);
+    }
+    else if(searchInput == selectInput){
+        selectMethod(selectInput);
+    }
+    */
+   selectMethod(selectInput);
+}
+
+function selectMethod(inputString){
+    try {
+        fetchMessage.innerHTML = "Fetching...";
+        setTimeout(() => {
+            searchPokemonCard(inputString);
+            i = 0;
+        }, 3000);
+    }
+    catch (err) {
+        console.log(err.message);
     }
 }
 
@@ -35,6 +51,7 @@ function searchPokemonCard(searchInput){
             return results.json();
         }).then(results =>{
             if(results.cards.length == 0){
+                fetchMessage = "";
                 searchError.innerHTML = "Please check the spelling of the name inputted";
             }    
             else {
@@ -57,29 +74,47 @@ function inits(results){
         displayCards.src = results.cards[i].imageUrl;   
     } 
     catch(err){
+        /* deprecated, catch should only contain the error handling
         if(i < 0){
             prev_button.disabled = true;
         }
-        else if (i >= results.length - 1){
+        else if (i == results.length - 1){
             next_button.disabled = true;
         }
+        */
         console.log(i);
         console.log(err.message);
     }
 }
 
 function next_nav(){
-    i += 1;
-    inits(jsonObject);
+    if(i < jsonObject.cards.length - 1){
+        i += 1;
+        inits(jsonObject);
+    }
+    else{
+        i += 0;
+        next_button.disabled = true;
+    }
+    
 }
 
 function prev_nav(){
-    i -= 1;
-    inits(jsonObject);
+    if(i>0){
+        i -= 1;
+        inits(jsonObject);
+    }
+    else{
+        i-=0;
+        prev_button.disabled=true;
+    }
+
 }
 
 
 /* only used to populate select fields
+*/
+/*
 function populateSelectFields(){
 
     var selectPokemon = [
@@ -913,5 +948,4 @@ function populateSelectFields(){
 }
 
 window.onload = populateSelectFields();
-
 */
