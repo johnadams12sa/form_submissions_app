@@ -29,7 +29,6 @@ function validateInput(){
 }
 
 function searchPokemonCard(searchInput){
-    fetchMessage.innerHTML = "";
     searchError.innerHTML = "";
     fetch(pokemonWebURL + searchInput)
         .then(results => {
@@ -58,14 +57,14 @@ function inits(results){
         displayCards.src = results.cards[i].imageUrl;   
     } 
     catch(err){
+        if(i < 0){
+            prev_button.disabled = true;
+        }
+        else if (i >= ((results.length) - 1)){
+            next_button.disabled = true;
+        }
+        console.log(i);
         console.log(err.message);
-            if(i < 0){
-                prev_button.disabled = true;
-            }
-            else if (i > results.length){
-                next_button.disabled = true;
-            }
-                console.log(i);
     }
 }
 
