@@ -1,12 +1,9 @@
-let APIKEY = 'RGAPI-69cb8f27-1604-4961-b3c2-ae47bac8377f';
+let APIKEY = config.RIOT_KEY;
 let riotURL = 'https://na1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=';
 let championJSONURL = 'http://ddragon.leagueoflegends.com/cdn/10.9.1/data/en_US/champion.json';
 let queryURL = riotURL + APIKEY;
 var riotChampionJson = {};
 var freeChampionRotations = {};
-let championSearch = document.getElementById("searchInput3").value;
-let champion = "";
-let arrayOfChampions = [];
 
 function parseChampionJSON(championJSONURL){
     fetch(championJSONURL).then(results =>{
@@ -27,8 +24,10 @@ function freeChampionRotationJSON(){
 }
 
 function searchChampion(){
-    let championSearch = "Ahri";
-    arrayOfChampions = [];
+    initRiot();
+    let championSearch = document.getElementById("searchInput3").value;
+    let arrayOfChampions = [];
+    let champion = "";
     for(x in riotChampionJson.data){
         arrayOfChampions.push(riotChampionJson.data[x]);
         if(championSearch == arrayOfChampions[x]){
@@ -41,9 +40,9 @@ function searchChampion(){
     }
 }
 
-function init(){
+function initRiot(){
     parseChampionJSON(championJSONURL);
     /*freeChampionRotationJSON();*/
 }
 
-window.onload = init();
+/*window.onload = init();*/

@@ -1,4 +1,4 @@
-let appID = config.MY_KEY;
+let appID = config.WEATHER_KEY;
 let units = "imperial";
 let searchMethod;
 
