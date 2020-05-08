@@ -1,4 +1,6 @@
 let pokemonWebURL = 'https://api.pokemontcg.io/v1/cards?name=';
+let bulbapediaURL = 'https://bulbapedia.bulbagarden.net/wiki/';
+let bulbapediaEndURL = '_(Pok%C3%A9mon)';
 var i = 0;
 var jsonObject = {};
 var prev_button = document.getElementById("pokemon_prev_nav");
@@ -37,7 +39,7 @@ function selectMethod(inputString){
         setTimeout(() => {
             searchPokemonCard(inputString);
             i = 0;
-        }, 3000);
+        }, 1000);
     }
     catch (err) {
         console.log(err.message);
@@ -61,9 +63,11 @@ function searchPokemonCard(searchInput){
                 jsonObject = results;
             }
         })
+    /*fetch(bulbapediaURL+searchInput+bulbapediaEndURL)*/
 }
 
 function inits(results){
+    let type = new Set();
     fetchMessage.innerHTML = "";
     prev_button.style.visibility = "visible";
     next_button.style.visibility = "visible";
@@ -71,7 +75,7 @@ function inits(results){
     next_button.disabled = false;
     try{
         let displayCards = document.getElementById("pokemon-display");
-        displayCards.src = results.cards[i].imageUrl;   
+        displayCards.src = results.cards[i].imageUrl;
     } 
     catch(err){
         /* deprecated, catch should only contain the error handling
@@ -111,10 +115,7 @@ function prev_nav(){
 
 }
 
-
-/* only used to populate select fields
-*/
-/*
+/*deprecated*/
 function populateSelectFields(){
 
     var selectPokemon = [
@@ -929,6 +930,8 @@ function populateSelectFields(){
         "Melmetal"
     ];
 
+    var selectPokemon2 = [{ "id": 810, "name": "Grookey", "types": ["grass"] }, { "id": 811, "name": "Thwackey", "types": ["grass"] }, { "id": 812, "name": "Rillaboom", "types": ["grass"] }, { "id": 813, "name": "Scorbunny", "types": ["fire"] }, { "id": 814, "name": "Raboot", "types": ["fire"] }, { "id": 815, "name": "Cinderace", "types": ["fire"] }, { "id": 816, "name": "Sobble", "types": ["water"] }, { "id": 817, "name": "Drizzile", "types": ["water"] }, { "id": 818, "name": "Inteleon", "types": ["water"] }, { "id": 819, "name": "Skwovet", "types": ["normal"] }, { "id": 820, "name": "Greedent", "types": ["normal"] }, { "id": 821, "name": "Rookidee", "types": ["flying"] }, { "id": 822, "name": "Corvisquire", "types": ["flying"] }, { "id": 823, "name": "Corviknight", "types": ["flying", "steel"] }, { "id": 824, "name": "Blipbug", "types": ["bug"] }, { "id": 825, "name": "Dottler", "types": ["bug", "psychic"] }, { "id": 826, "name": "Orbeetle", "types": ["bug", "psychic"] }, { "id": 827, "name": "Nickit", "types": ["dark"] }, { "id": 828, "name": "Thievul", "types": ["dark"] }, { "id": 829, "name": "Gossifleur", "types": ["grass"] }, { "id": 830, "name": "Eldegoss", "types": ["grass"] }, { "id": 831, "name": "Wooloo", "types": ["normal"] }, { "id": 832, "name": "Dubwool", "types": ["normal"] }, { "id": 833, "name": "Chewtle", "types": ["water"] }, { "id": 834, "name": "Drednaw", "types": ["water", "rock"] }, { "id": 835, "name": "Yamper", "types": ["electric"] }, { "id": 836, "name": "Boltund", "types": ["electric"] }, { "id": 837, "name": "Rolycoly", "types": ["rock"] }, { "id": 838, "name": "Carkol", "types": ["rock", "fire"] }, { "id": 839, "name": "Coalossal", "types": ["rock", "fire"] }, { "id": 840, "name": "Applin", "types": ["grass", "dragon"] }, { "id": 841, "name": "Flapple", "types": ["grass", "dragon"] }, { "id": 842, "name": "Appletun", "types": ["grass", "dragon"] }, { "id": 843, "name": "Silicobra", "types": ["ground"] }, { "id": 844, "name": "Sandaconda", "types": ["ground"] }, { "id": 845, "name": "Cramorant", "types": ["flying", "water"] }, { "id": 846, "name": "Arrokuda", "types": ["water"] }, { "id": 847, "name": "Barraskewda", "types": ["water"] }, { "id": 848, "name": "Toxel", "types": ["electric", "poison"] }, { "id": 849, "name": "Toxtricity", "types": ["electric", "poison"] }, { "id": 850, "name": "Sizzlipede", "types": ["fire", "bug"] }, { "id": 851, "name": "Centiskorch", "types": ["fire", "bug"] }, { "id": 852, "name": "Clobbopus", "types": ["fighting"] }, { "id": 853, "name": "Grapploct", "types": ["fighting"] }, { "id": 854, "name": "Sinistea", "types": ["ghost"] }, { "id": 855, "name": "Polteageist", "types": ["ghost"] }, { "id": 856, "name": "Hatenna", "types": ["psychic"] }, { "id": 857, "name": "Hattrem", "types": ["psychic"] }, { "id": 858, "name": "Hatterene", "types": ["psychic", "fairy"] }, { "id": 859, "name": "Impidimp", "types": ["dark", "fairy"] }, { "id": 860, "name": "Morgrem", "types": ["dark", "fairy"] }, { "id": 861, "name": "Grimmsnarl", "types": ["dark", "fairy"] }, { "id": 862, "name": "Obstagoon", "types": ["dark", "normal"] }, { "id": 863, "name": "Perrserker", "types": ["steel"] }, { "id": 864, "name": "Cursola", "types": ["ghost"] }, { "id": 865, "name": "Sirfetch'd", "types": ["fighting"] }, { "id": 866, "name": "Mr. Rime", "types": ["ice", "psychic"] }, { "id": 867, "name": "Runerigus", "types": ["ground", "ghost"] }, { "id": 868, "name": "Milcery", "types": ["fairy"] }, { "id": 869, "name": "Alcremie", "types": ["fairy"] }, { "id": 870, "name": "Falinks", "types": ["fighting"] }, { "id": 871, "name": "Pincurchin", "types": ["electric"] }, { "id": 872, "name": "Snom", "types": ["ice", "bug"] }, { "id": 873, "name": "Frosmoth", "types": ["ice", "bug"] }, { "id": 874, "name": "Stonjourner", "types": ["rock"] }, { "id": 875, "name": "Eiscue", "types": ["ice"] }, { "id": 876, "name": "Indeedee", "types": ["psychic", "normal"] }, { "id": 877, "name": "Morpeko", "types": ["electric", "dark"] }, { "id": 878, "name": "Cufant", "types": ["steel"] }, { "id": 879, "name": "Copperajah", "types": ["steel"] }, { "id": 880, "name": "Dracozolt", "types": ["electric", "dragon"] }, { "id": 881, "name": "Arctozolt", "types": ["electric", "ice"] }, { "id": 882, "name": "Dracovish", "types": ["water", "dragon"] }, { "id": 883, "name": "Arctovish", "types": ["water", "ice"] }, { "id": 884, "name": "Duraludon", "types": ["steel", "dragon"] }, { "id": 885, "name": "Dreepy", "types": ["dragon", "ghost"] }, { "id": 886, "name": "Drakloak", "types": ["dragon", "ghost"] }, { "id": 887, "name": "Dragapult", "types": ["dragon", "ghost"] }, { "id": 888, "name": "Zacian", "types": ["fairy"] }, { "id": 889, "name": "Zamazenta", "types": ["fighting"] }, { "id": 890, "name": "Eternatus", "types": ["poison", "dragon"]}];
+
     let pokemonDropdown = document.getElementById("pokemon-dropdown");
     pokemonDropdown.length= 0;
 
@@ -945,7 +948,15 @@ function populateSelectFields(){
         option.value = selectPokemon[i];
         pokemonDropdown.add(option);
     }
+    for(let k=0; k < selectPokemon2.length; k++){
+        console.log(selectPokemon2[k].name);
+        option = document.createElement("option");
+        option.text = selectPokemon2[k].name;
+        option.value = selectPokemon2[k].name;
+        pokemonDropdown.add(option);
+    }
 }
 
-window.onload = populateSelectFields();
-*/
+
+/*window.onload = populateSelectFields();*/
+
