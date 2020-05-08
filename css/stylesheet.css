@@ -17,6 +17,28 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+/*-----input------------------------------------------------------------------------------------------*/
+input[type=text]{
+    padding: 12px, 20px;
+    margin: 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button{
+    background-color: white;
+    border: 1px solid #008CBA;
+    border-radius: 2px;
+}
+
+input[type=submit]:hover{
+    background-color: #ddd;
+}
+
+
 /*top navigation bar*/
 .navbar .logo{
     padding:0px;
@@ -178,6 +200,9 @@ hr{
 }
 
 /*-----pokemon tcg------------------------------------------------------------------------------------*/
+#pokemon-display{
+    padding-top: 5px;
+}
 .pokemon-tcg{
     margin: 15px;
     width: 245px;
@@ -185,13 +210,15 @@ hr{
     padding: 25px;
     border-radius: 25px;
     float: left; 
+    overflow: hidden;
+    display: inline;
 }
 #pokemon_next_nav{
-    position: relative;
+    position: inherit;
 }
 
 #pokemon_prev_nav{
-    position: relative;
+    position: inehrit;
 }
 
 /*-----LoL -------------------------------------------------------------------------------------------*/
@@ -203,3 +230,4 @@ hr{
     border-radius: 25px;
     float: left; 
 }
+
