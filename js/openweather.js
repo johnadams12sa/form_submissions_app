@@ -22,18 +22,12 @@ function getSearchMethod(searchTerm){
 
 function searchWeather(searchTerm){
     getSearchMethod(searchTerm);
-    try{
-        fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&units=${units}&appid=${appID}`)
-            .then(results => {
-                return results.json();
-            }).then(result => {
-                init(result);
-            })
-    }
-    catch(err){
-        console.log(err.message);
-    }
-
+    fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&units=${units}&appid=${appID}`)
+        .then(results => {
+            return results.json();
+        }).then(result => {
+            init(result);
+        })
 }
 
 function init(resultFromAPICall){

@@ -42,7 +42,7 @@ function searchChampion(){
 
 function initRiot(){
     parseChampionJSON(championJSONURL);
-    /*freeChampionRotationJSON();*/
+    freeChampionRotationJSON();
 }
 
 /*window.onload = init();*/
