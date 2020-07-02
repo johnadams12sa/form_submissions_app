@@ -67,7 +67,7 @@ function searchPokemonCard(searchInput){
 }
 
 function inits(results){
-    let type = new Set();
+    //let type = new Set();
     fetchMessage.innerHTML = "";
     prev_button.style.visibility = "visible";
     next_button.style.visibility = "visible";
@@ -957,6 +957,6 @@ function populateSelectFields(){
     }
 }
 
-
 /*window.onload = populateSelectFields();*/
+window.onload = validateInput();
 
