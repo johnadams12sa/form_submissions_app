@@ -65,11 +65,11 @@ function populateDropdownFields(championArray){
     }
 }
 
-function riotStartUp(){
-    display_champion_data();
-    let championName = document.getElementById("champion_name").value;
-    retrieveChampionSkins(championName);
+/*function riotStartUp(){
+    parseChampionJSON(championJSONURL);
+    retrieveChampionSkins("Ahri");
 }
+*/
 
 function display_champion_data(){
     lol_prev_button.style.visibility = "visible";
@@ -78,7 +78,6 @@ function display_champion_data(){
     lol_next_button.disabled = false;
 
     let championName = document.getElementById("champion_name").value;
-
     //retrieveChampionSkins(championName);    
     
     let splash_art = document.getElementById("champion_splash_art");
@@ -184,3 +183,4 @@ function lol_prev_nav(){
 }
 
 window.onload = parseChampionJSON(championJSONURL);
+/*window.onload = riotStartUp();*/
