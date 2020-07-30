@@ -2,6 +2,7 @@ let APIKEY = config.RIOT_KEY;
 let riotURL = 'https://na1.api.riotgames.com/lol/platform/v3/champion-rotations?api_key=';
 let championJSONURL = 'http://ddragon.leagueoflegends.com/cdn/10.9.1/data/en_US/champion.json';
 let championSplashArt = 'http://ddragon.leagueoflegends.com/cdn/img/champion/splash/';
+//example: http://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg
 let championSkins = 'http://ddragon.leagueoflegends.com/cdn/10.12.1/data/en_US/champion/';
 let championSplashArtEnd = '_';
 let championSplashArtEnd2 = 0;
@@ -85,7 +86,13 @@ function display_champion_data(){
     splash_art.id = "champion_splash_art";
     let championSplashArtUrl = championSplashArt + championName + championSplashArtEnd + championSplashArtEnd2 + '.jpg'; 
     splash_art.src = championSplashArtUrl;
-    //retrieveChampionSkins(championName);
+    let championLore = document.getElementById("champion-lore");
+    championLore.innerHTML = riotChampionJson.data[championName].blurb;
+    let championTitle = document.getElementById("champion-title");
+    let temp = riotChampionJson.data[championName].title;
+    let tempFinish = temp.charAt(0).toUpperCase() + temp.slice(1);
+    championTitle.innerHTML = tempFinish;
+    retrieveChampionSkins(championName);
     //document.getElementById("champion-display").appendChild(splash_art);
 }
 
@@ -99,9 +106,9 @@ function showNewSkin(){
     splash_art.id = "champion_splash_art";
     let championSplashArtUrl = championSplashArt + championName + championSplashArtEnd + championSplashArtEnd2 + '.jpg';
     splash_art.src = championSplashArtUrl;
-
 }
 
+/*
 function freeChampionRotationJSON(){
     fetch(queryURL).then(results => {
         return results.json();
@@ -110,6 +117,7 @@ function freeChampionRotationJSON(){
         console.log(freeChampionRotations);
     })
 }
+*/
 
 function retrieveChampionSkins(championName){
     let championSkinsUrl = championSkins + championName + '.json';
@@ -148,9 +156,10 @@ function lol_next_nav(){
     try{
         if(i < numSkins - 1)
         {
+            //console.log("Before incrementing variable i " + i);
             i++;
             championSplashArtEnd2 = championSkinsJson.data[championName].skins[i].num;
-            showNewSkin();
+            showNewSkin();    
         }
         else{
             lol_next_button.disabled = true;
